@@ -1,0 +1,486 @@
+<!-- index.html — Chirolift style landing (HTML + JS + Tailwind CDN) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chirolift — Chiropractor Landing</title>
+
+    <!-- ✅ Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      /* Soft big ring behind about section like screenshot */
+      .soft-ring {
+        background:
+          radial-gradient(closest-side, rgba(34, 197, 94, 0.10), transparent 70%),
+          radial-gradient(closest-side, rgba(59, 130, 246, 0.10), transparent 70%);
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 text-slate-800">
+    <!-- Top color bar -->
+    <div class="h-28 w-full bg-sky-700"></div>
+
+    <!-- Page container -->
+    <div class="-mt-16">
+      <!-- NAV -->
+      <header class="mx-auto max-w-6xl px-4">
+        <div class="rounded-3xl bg-white/90 shadow-sm ring-1 ring-slate-200 backdrop-blur">
+          <div class="flex items-center justify-between px-5 py-4">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-sky-100 text-sky-700">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9-9 4.03-9 9 4.03 9 9 9Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M12 7v10M7 12h10"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+              <span class="text-base font-semibold tracking-tight">chirolift</span>
+            </a>
+
+            <!-- Links -->
+            <nav class="hidden items-center gap-7 text-sm text-slate-600 md:flex">
+              <a class="hover:text-slate-900" href="#home">Home</a>
+              <a class="hover:text-slate-900" href="#about">About</a>
+              <a class="hover:text-slate-900" href="#services">Services</a>
+              <button
+                class="inline-flex items-center gap-1 hover:text-slate-900"
+                id="pagesBtn"
+                type="button"
+              >
+                Pages
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 10l5 5 5-5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <a class="hover:text-slate-900" href="#contact">Contact Us</a>
+            </nav>
+
+            <!-- Social -->
+            <div class="hidden items-center gap-3 md:flex">
+              <span class="text-xs font-semibold text-slate-500">Follow us:</span>
+              <a class="grid h-9 w-9 place-items-center rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200" href="#" aria-label="Facebook">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M14 8h2V5h-2c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.1l.9-3H13V9c0-.6.4-1 1-1Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+              <a class="grid h-9 w-9 place-items-center rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200" href="#" aria-label="Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                </svg>
+              </a>
+              <a class="grid h-9 w-9 place-items-center rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200" href="#" aria-label="Twitter">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M22 5.8c-.7.3-1.4.6-2.2.7.8-.5 1.3-1.2 1.6-2.1-.7.4-1.6.8-2.5 1A3.7 3.7 0 0 0 10.6 9c0 .3 0 .6.1.8-3.1-.2-5.9-1.7-7.8-4-.3.6-.5 1.2-.5 2 0 1.3.7 2.5 1.8 3.2-.6 0-1.2-.2-1.7-.5v.1c0 1.9 1.4 3.5 3.2 3.9-.4.1-.8.1-1.2.1-.3 0-.6 0-.8-.1.6 1.7 2.2 2.9 4.1 3A7.4 7.4 0 0 1 2 19.2 10.4 10.4 0 0 0 7.7 21c6.8 0 10.5-5.8 10.5-10.8v-.5c.7-.5 1.3-1.2 1.8-1.9Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+
+              <button
+                id="menuBtn"
+                class="ml-1 inline-flex rounded-full p-2 text-slate-700 hover:bg-slate-100 md:hidden"
+                aria-label="Open menu"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button
+              id="menuBtn2"
+              class="inline-flex rounded-full p-2 text-slate-700 hover:bg-slate-100 md:hidden"
+              aria-label="Open menu"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Pages dropdown (desktop) -->
+          <div class="relative hidden md:block">
+            <div
+              id="pagesMenu"
+              class="absolute right-40 top-0 mt-2 hidden w-44 rounded-2xl bg-white p-2 shadow-lg ring-1 ring-slate-200"
+            >
+              <a class="block rounded-xl px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" href="#services">Services</a>
+              <a class="block rounded-xl px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" href="#trusted">Trusted</a>
+              <a class="block rounded-xl px-3 py-2 text-sm text-slate-700 hover:bg-slate-50" href="#contact">Appointment</a>
+            </div>
+          </div>
+
+          <!-- Mobile nav -->
+          <div id="mobileNav" class="hidden border-t border-slate-200 px-5 py-4 md:hidden">
+            <div class="grid gap-2 text-sm text-slate-700">
+              <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#home">Home</a>
+              <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#about">About</a>
+              <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#services">Services</a>
+              <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#contact">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- HERO -->
+      <section id="home" class="mx-auto max-w-6xl px-4 pb-10 pt-8">
+        <div class="rounded-[34px] bg-white shadow-sm ring-1 ring-slate-200">
+          <div class="grid gap-8 px-6 py-10 md:grid-cols-12 md:px-10 md:py-12">
+            <!-- Left -->
+            <div class="md:col-span-6">
+              <h1 class="text-4xl font-semibold leading-tight text-slate-900 md:text-5xl">
+                Chiropractor At<br />
+                Your Service
+              </h1>
+
+              <p class="mt-4 max-w-xl text-sm leading-relaxed text-slate-600 md:text-base">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
+                ullamcorper mattis, pulvinar dapibus leo.
+              </p>
+
+              <div class="mt-6">
+                <a
+                  href="#about"
+                  class="inline-flex items-center rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:bg-slate-50"
+                >
+                  Read More
+                </a>
+              </div>
+            </div>
+
+            <!-- Right image -->
+            <div class="relative md:col-span-6">
+              <!-- Blob background -->
+              <div class="absolute -right-2 top-2 h-[340px] w-[340px] rounded-[48px] bg-gradient-to-br from-sky-500 to-emerald-300 md:h-[380px] md:w-[380px]"></div>
+
+              <!-- Main image card -->
+              <div class="relative mx-auto mt-3 w-full max-w-md">
+                <img
+                  class="relative z-10 h-[360px] w-full object-contain md:h-[400px]"
+                  src="https://images.unsplash.com/photo-1580281658628-71e2b9b2db4a?auto=format&fit=crop&w=1200&q=80"
+                  alt="Doctors"
+                />
+
+                <!-- Floating avatar chips -->
+                <div class="absolute -right-3 top-10 z-20 grid gap-4">
+                  <div class="rounded-full border-2 border-dashed border-slate-300 bg-white p-1 shadow-sm">
+                    <img
+                      class="h-16 w-16 rounded-full object-cover"
+                      src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&q=60"
+                      alt="Avatar"
+                    />
+                  </div>
+                  <div class="rounded-full border-2 border-dashed border-slate-300 bg-white p-1 shadow-sm">
+                    <img
+                      class="h-16 w-16 rounded-full object-cover"
+                      src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=200&q=60"
+                      alt="Avatar"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Appointment form -->
+            <div class="md:col-span-12">
+              <div class="mt-2 rounded-3xl bg-white px-6 py-6 shadow-xl ring-1 ring-slate-200">
+                <h3 class="text-center text-xl font-semibold text-slate-900 md:text-2xl">
+                  Book An Appointment Today
+                </h3>
+
+                <form
+                  class="mt-5 grid gap-3 md:grid-cols-12 md:items-center"
+                  onsubmit="event.preventDefault(); alert('Appointment requested!');"
+                >
+                  <input
+                    class="md:col-span-3 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-sky-500"
+                    placeholder="Name"
+                    required
+                  />
+                  <input
+                    type="email"
+                    class="md:col-span-3 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-sky-500"
+                    placeholder="Email"
+                    required
+                  />
+                  <input
+                    type="date"
+                    class="md:col-span-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-sky-500"
+                    required
+                  />
+                  <select
+                    class="md:col-span-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-sky-500"
+                    required
+                  >
+                    <option value="" disabled selected>Select</option>
+                    <option>Chiropractic</option>
+                    <option>Physiotherapy</option>
+                    <option>Massage Therapy</option>
+                  </select>
+                  <button
+                    class="md:col-span-2 w-full rounded-xl bg-sky-700 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sky-800"
+                    type="submit"
+                  >
+                    Book Now
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature cards -->
+      <section class="mx-auto max-w-6xl px-4 pb-10">
+        <div class="grid gap-5 md:grid-cols-3">
+          <div class="rounded-3xl bg-white p-6 text-center shadow-sm ring-1 ring-slate-200">
+            <div class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-sky-50 text-sky-700">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h4 class="mt-4 text-base font-semibold">Health Guarantee</h4>
+            <p class="mt-2 text-sm text-slate-600">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+            <div class="mt-4">
+              <span class="mx-auto inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-slate-500">+</span>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-white p-6 text-center shadow-sm ring-1 ring-slate-200">
+            <div class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-emerald-50 text-emerald-700">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 21s-8-4.6-8-11a4.5 4.5 0 0 1 8-2.7A4.5 4.5 0 0 1 20 10c0 6.4-8 11-8 11Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h4 class="mt-4 text-base font-semibold">Trusted Clinic</h4>
+            <p class="mt-2 text-sm text-slate-600">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+            <div class="mt-4">
+              <span class="mx-auto inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-slate-500">+</span>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-white p-6 text-center shadow-sm ring-1 ring-slate-200">
+            <div class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-amber-50 text-amber-700">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Z" stroke="currentColor" stroke-width="2" />
+                <path d="M20 21a8 8 0 0 0-16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h4 class="mt-4 text-base font-semibold">Expert Therapist</h4>
+            <p class="mt-2 text-sm text-slate-600">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+            <div class="mt-4">
+              <span class="mx-auto inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-slate-500">+</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About section like screenshot -->
+      <section id="about" class="mx-auto max-w-6xl px-4 pb-12">
+        <div class="relative overflow-hidden rounded-[34px] bg-white p-6 shadow-sm ring-1 ring-slate-200 md:p-10">
+          <div class="soft-ring pointer-events-none absolute -left-40 -top-40 h-[520px] w-[520px] rounded-full"></div>
+
+          <div class="relative grid gap-8 md:grid-cols-12 md:items-center">
+            <!-- Left stats -->
+            <div class="md:col-span-4">
+              <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                <div class="flex items-center gap-3">
+                  <span class="grid h-10 w-10 place-items-center rounded-2xl bg-white text-sky-700 ring-1 ring-slate-200">
+                    🏆
+                  </span>
+                  <div>
+                    <div class="text-xl font-semibold">100</div>
+                    <div class="text-xs text-slate-600">Skilled Therapist</div>
+                  </div>
+                </div>
+
+                <div class="mt-4 flex items-center gap-3">
+                  <span class="grid h-10 w-10 place-items-center rounded-2xl bg-white text-emerald-700 ring-1 ring-slate-200">
+                    👥
+                  </span>
+                  <div>
+                    <div class="text-xl font-semibold">880</div>
+                    <div class="text-xs text-slate-600">Satisfied Clients</div>
+                  </div>
+                </div>
+
+                <div class="mt-4 flex items-center gap-3">
+                  <span class="grid h-10 w-10 place-items-center rounded-2xl bg-white text-amber-700 ring-1 ring-slate-200">
+                    🩺
+                  </span>
+                  <div>
+                    <div class="text-xl font-semibold">640</div>
+                    <div class="text-xs text-slate-600">Happy Patients</div>
+                  </div>
+                </div>
+
+                <div class="mt-5 rounded-2xl bg-gradient-to-r from-sky-600 to-emerald-500 px-4 py-3 text-white">
+                  <div class="text-sm font-semibold">We Have 10 Years To</div>
+                  <div class="text-sm font-semibold">Giving Services</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Middle image -->
+            <div class="md:col-span-4">
+              <div class="rounded-3xl bg-white p-2 shadow-sm ring-1 ring-slate-200">
+                <img
+                  class="h-[320px] w-full rounded-2xl object-cover"
+                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=80"
+                  alt="Therapy"
+                />
+              </div>
+            </div>
+
+            <!-- Right text -->
+            <div class="md:col-span-4">
+              <h3 class="text-3xl font-semibold leading-tight text-slate-900">
+                Experience The<br />
+                Healing Power Of<br />
+                Chiropractic
+              </h3>
+              <p class="mt-4 text-sm leading-relaxed text-slate-600">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor.
+                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
+              </p>
+
+              <div class="mt-4 space-y-2 text-sm text-slate-700">
+                <div class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                  Professional Therapists
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-sky-500"></span>
+                  Satisfaction Guarantee
+                </div>
+              </div>
+
+              <div class="mt-6 flex flex-wrap items-center gap-3">
+                <a
+                  href="#contact"
+                  class="inline-flex items-center rounded-xl bg-sky-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-sky-800"
+                >
+                  Make Appointment
+                </a>
+                <a href="#about" class="inline-flex items-center px-2 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900">
+                  Read More About →
+                </a>
+              </div>
+
+              <div class="mt-5 text-right text-sm text-slate-500">
+                <span class="font-semibold text-slate-600">John Doe</span>
+                <span class="ml-2 text-xs">(Signature)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trusted logos -->
+      <section id="trusted" class="mx-auto max-w-6xl px-4 pb-14">
+        <div class="rounded-[34px] bg-white px-6 py-10 shadow-sm ring-1 ring-slate-200 md:px-10">
+          <h3 class="text-center text-2xl font-semibold text-slate-900 md:text-3xl">
+            Trusted By 250+ Companies
+          </h3>
+
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 text-slate-400">
+            <div class="flex items-center gap-2 text-lg font-semibold">
+              <span class="h-6 w-6 rounded bg-slate-200"></span> logopipsum
+            </div>
+            <div class="flex items-center gap-2 text-lg font-semibold">
+              <span class="h-6 w-6 rounded bg-slate-200"></span> logopipsum
+            </div>
+            <div class="flex items-center gap-2 text-lg font-semibold">
+              <span class="h-6 w-6 rounded bg-slate-200"></span> logopipsum
+            </div>
+            <div class="flex items-center gap-2 text-lg font-semibold">
+              <span class="h-6 w-6 rounded bg-slate-200"></span> logopipsum
+            </div>
+            <div class="flex items-center gap-2 text-lg font-semibold">
+              <span class="h-6 w-6 rounded bg-slate-200"></span> logopipsum
+            </div>
+          </div>
+
+          <div class="mt-10 border-t border-slate-200 pt-10">
+            <h3 id="services" class="text-center text-2xl font-semibold text-slate-900 md:text-3xl">
+              Best Services
+            </h3>
+            <p class="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-600">
+              Add your services section here (cards, icons, pricing, etc.) — this matches the screenshot layout.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer id="contact" class="mx-auto max-w-6xl px-4 pb-10">
+        <div class="rounded-3xl bg-white p-6 text-center shadow-sm ring-1 ring-slate-200">
+          <p class="text-sm text-slate-600">
+            © <span id="year"></span> Chirolift. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // mobile menu
+      const menuBtn2 = document.getElementById("menuBtn2");
+      const mobileNav = document.getElementById("mobileNav");
+      menuBtn2?.addEventListener("click", () => mobileNav.classList.toggle("hidden"));
+
+      // pages dropdown (desktop)
+      const pagesBtn = document.getElementById("pagesBtn");
+      const pagesMenu = document.getElementById("pagesMenu");
+
+      pagesBtn?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        pagesMenu.classList.toggle("hidden");
+      });
+
+      document.addEventListener("click", () => {
+        if (!pagesMenu.classList.contains("hidden")) pagesMenu.classList.add("hidden");
+      });
+    </script>
+  </body>
+</html>
