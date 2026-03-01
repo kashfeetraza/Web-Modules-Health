@@ -1,0 +1,673 @@
+<!-- index.html (JavaScript + Tailwind CSS) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProHealth Landing</title>
+
+    <!-- Tailwind CDN (for quick prototyping) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      /* Optional: make the hero overlay a bit softer like the reference */
+      .hero-overlay {
+        background: linear-gradient(
+          90deg,
+          rgba(15, 23, 42, 0.55) 0%,
+          rgba(15, 23, 42, 0.25) 45%,
+          rgba(15, 23, 42, 0.05) 100%
+        );
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 text-slate-800">
+    <!-- Top Nav -->
+    <header class="w-full">
+      <div class="mx-auto max-w-6xl px-4 py-4">
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <a href="#" class="flex items-center gap-2 font-semibold text-slate-800">
+            <span
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky-100 text-sky-700"
+              aria-hidden="true"
+            >
+              <!-- simple logo mark -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9-9 4.03-9 9 4.03 9 9 9Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <path
+                  d="M8 12h8M12 8v8"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <span>ProHealth</span>
+          </a>
+
+          <!-- Desktop Nav -->
+          <nav class="hidden items-center gap-7 text-sm text-slate-600 md:flex">
+            <a class="hover:text-slate-900" href="#home">Home</a>
+            <a class="hover:text-slate-900" href="#about">About</a>
+            <a class="hover:text-slate-900" href="#doctors">Find Doctors</a>
+            <a class="hover:text-slate-900" href="#programs">Programs</a>
+            <a class="hover:text-slate-900" href="#contact">Contact</a>
+          </nav>
+
+          <!-- Actions -->
+          <div class="flex items-center gap-3">
+            <button
+              id="searchBtn"
+              class="hidden rounded-full p-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 md:inline-flex"
+              aria-label="Search"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M21 21l-4.3-4.3M10.8 18.1a7.3 7.3 0 1 1 0-14.6 7.3 7.3 0 0 1 0 14.6Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+
+            <button
+              id="menuBtn"
+              class="inline-flex rounded-full p-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 md:hidden"
+              aria-label="Open menu"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M4 7h16M4 12h16M4 17h16"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+
+            <a
+              href="#contact"
+              class="hidden rounded-full bg-sky-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-700 md:inline-flex"
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div
+          id="mobileNav"
+          class="mt-3 hidden rounded-2xl border border-slate-200 bg-white p-3 md:hidden"
+        >
+          <div class="grid gap-2 text-sm text-slate-700">
+            <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#home">Home</a>
+            <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#about">About</a>
+            <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#doctors">Find Doctors</a>
+            <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#programs">Programs</a>
+            <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#contact">Contact</a>
+
+            <a
+              href="#contact"
+              class="mt-1 inline-flex items-center justify-center rounded-xl bg-sky-600 px-3 py-2 font-medium text-white hover:bg-sky-700"
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+
+        <!-- Search Modal -->
+        <div
+          id="searchModal"
+          class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 p-4"
+        >
+          <div class="w-full max-w-xl rounded-2xl bg-white p-4 shadow-xl">
+            <div class="flex items-center gap-2">
+              <div class="rounded-xl bg-slate-100 p-2 text-slate-700">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M21 21l-4.3-4.3M10.8 18.1a7.3 7.3 0 1 1 0-14.6 7.3 7.3 0 0 1 0 14.6Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <input
+                id="searchInput"
+                class="w-full rounded-xl border border-slate-200 px-3 py-2 outline-none focus:border-sky-500"
+                placeholder="Search doctors, departments, services..."
+              />
+              <button
+                id="closeSearch"
+                class="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+              >
+                Close
+              </button>
+            </div>
+            <p class="mt-3 text-xs text-slate-500">
+              Tip: press <span class="rounded bg-slate-100 px-1 py-0.5">Esc</span> to close.
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="mx-auto max-w-6xl px-4 pb-8">
+      <div class="relative overflow-hidden rounded-[28px] bg-slate-200">
+        <!-- Background image (replace with your own) -->
+        <div
+          class="absolute inset-0 bg-cover bg-center"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1580281658628-71e2b9b2db4a?auto=format&fit=crop&w=2000&q=80');
+          "
+        ></div>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 hero-overlay"></div>
+
+        <!-- Content -->
+        <div class="relative grid gap-8 px-6 py-10 md:grid-cols-12 md:px-10 md:py-14">
+          <!-- Left -->
+          <div class="md:col-span-7">
+            <div class="max-w-xl">
+              <h1 class="text-3xl font-semibold leading-tight text-white md:text-5xl">
+                Compassionate care,<br class="hidden md:block" />
+                exceptional results
+              </h1>
+
+              <p class="mt-4 max-w-lg text-sm leading-relaxed text-white/80 md:text-base">
+                Our team of experienced doctors and healthcare professionals are committed to
+                providing quality care and personalized attention to our patients.
+              </p>
+
+              <div class="mt-6 flex flex-wrap items-center gap-4">
+                <button
+                  id="playBtn"
+                  class="inline-flex items-center gap-3 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur hover:bg-white/15"
+                >
+                  <span
+                    class="grid h-9 w-9 place-items-center rounded-full bg-white/15"
+                    aria-hidden="true"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M9 7.5v9l8-4.5-8-4.5Z"
+                        fill="currentColor"
+                        class="text-white"
+                      />
+                    </svg>
+                  </span>
+                  See how we work
+                </button>
+
+                <a
+                  href="#departments"
+                  class="inline-flex items-center rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-100"
+                >
+                  Explore Departments
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right badge -->
+          <div class="md:col-span-5 md:flex md:items-start md:justify-end">
+            <div
+              class="mt-2 inline-flex items-center gap-3 rounded-2xl bg-white/90 p-3 shadow-md backdrop-blur md:mt-0"
+            >
+              <!-- avatars -->
+              <div class="flex -space-x-2">
+                <img
+                  class="h-8 w-8 rounded-full border-2 border-white object-cover"
+                  src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=200&q=60"
+                  alt="Patient"
+                />
+                <img
+                  class="h-8 w-8 rounded-full border-2 border-white object-cover"
+                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=60"
+                  alt="Patient"
+                />
+                <img
+                  class="h-8 w-8 rounded-full border-2 border-white object-cover"
+                  src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=60"
+                  alt="Patient"
+                />
+              </div>
+
+              <div class="leading-tight">
+                <div class="text-sm font-semibold text-slate-900">150K+</div>
+                <div class="text-xs text-slate-600">Patient Recover</div>
+              </div>
+
+              <span
+                class="ml-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-sky-600 text-white"
+                aria-label="Verified"
+                title="Verified"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M20 6 9 17l-5-5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Stats strip -->
+          <div class="md:col-span-12">
+            <div
+              class="mt-6 grid gap-3 rounded-2xl bg-white/10 p-4 text-white backdrop-blur md:grid-cols-4"
+            >
+              <div class="rounded-xl bg-white/10 p-4">
+                <div class="text-2xl font-semibold">20+</div>
+                <div class="mt-1 text-xs text-white/75">Years of experience</div>
+              </div>
+              <div class="rounded-xl bg-white/10 p-4">
+                <div class="text-2xl font-semibold">95%</div>
+                <div class="mt-1 text-xs text-white/75">Patient satisfaction rating</div>
+              </div>
+              <div class="rounded-xl bg-white/10 p-4">
+                <div class="text-2xl font-semibold">5000+</div>
+                <div class="mt-1 text-xs text-white/75">Patients served annually</div>
+              </div>
+              <div class="rounded-xl bg-white/10 p-4">
+                <div class="text-2xl font-semibold">10+</div>
+                <div class="mt-1 text-xs text-white/75">Healthcare providers on staff</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="mx-auto max-w-6xl px-4 py-10">
+      <div class="grid items-center gap-8 md:grid-cols-12">
+        <div class="md:col-span-6">
+          <p class="text-xs font-semibold tracking-widest text-sky-700">ABOUT US</p>
+          <h2 class="mt-2 text-3xl font-semibold leading-tight text-slate-900 md:text-4xl">
+            ProHealth is a team<br class="hidden md:block" />
+            of experienced<br class="hidden md:block" />
+            medical professional
+          </h2>
+          <p class="mt-4 max-w-lg text-sm leading-relaxed text-slate-600 md:text-base">
+            Dedicated to providing top-quality healthcare services. We believe in a holistic
+            approach to healthcare that focuses on treating the whole person, not just the illness
+            or symptoms.
+          </p>
+
+          <div class="mt-6 flex gap-3">
+            <a
+              href="#contact"
+              class="inline-flex items-center rounded-full bg-sky-600 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-700"
+            >
+              Book an Appointment
+            </a>
+            <a
+              href="#doctors"
+              class="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            >
+              Find Doctors
+            </a>
+          </div>
+        </div>
+
+        <div class="md:col-span-6">
+          <div class="relative overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-sm">
+            <img
+              class="h-[280px] w-full object-cover md:h-[340px]"
+              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=2000&q=80"
+              alt="Medical team"
+            />
+            <div class="absolute inset-0 bg-gradient-to-tr from-sky-500/10 to-white/0"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Departments -->
+    <section id="departments" class="mx-auto max-w-6xl px-4 pb-14 pt-4">
+      <p class="text-xs font-semibold tracking-widest text-sky-700">OUR DEPARTMENTS</p>
+      <h2 class="mt-2 text-3xl font-semibold text-slate-900 md:text-4xl">For Your Health</h2>
+
+      <div class="mt-7 grid gap-4 md:grid-cols-3">
+        <!-- Card component -->
+        <div class="dept-card">
+          <div class="dept-icon">
+            <!-- siren -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 3v3M8 6.5 6.5 5M16 6.5 17.5 5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M7 11a5 5 0 0 1 10 0v4H7v-4Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M6 19h12"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div class="dept-title">Emergency Department</div>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon">
+            <!-- teddy/baby -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 7a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM19 7a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path
+                d="M7.5 10.5A5.5 5.5 0 0 1 12 8a5.5 5.5 0 0 1 4.5 2.5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M8 20c-2 0-3-1.6-3-3.5 0-2.7 2.1-5.5 7-5.5s7 2.8 7 5.5C19 18.4 18 20 16 20"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M10 15h.01M14 15h.01"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div class="dept-title">Pediatric Department</div>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon">
+            <!-- uterus / obgyn-ish -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 3v6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M7 7c-1.5 0-3 1.8-3 4.5 0 4.5 3.5 7.5 8 9 4.5-1.5 8-4.5 8-9C20 8.8 18.5 7 17 7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M9 7c0 3-1 5-3 6M15 7c0 3 1 5 3 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div class="dept-title">Obstetrics and Gynecology Department</div>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon">
+            <!-- heart -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 21s-8-4.6-8-11a4.5 4.5 0 0 1 8-2.7A4.5 4.5 0 0 1 20 10c0 6.4-8 11-8 11Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 12h2l1-2 2 4 1-2h2"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="dept-title">Cardiology Department</div>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon">
+            <!-- neuro -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 21c-2.2 0-4-1.8-4-4 0-1.4.8-2.7 2-3.4V10a5 5 0 0 1 10 0v2.6c1.2.7 2 2 2 3.4 0 2.2-1.8 4-4 4"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M9 9h.01M15 9h.01M10 13h4"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div class="dept-title">Neurology Department</div>
+        </div>
+
+        <div class="dept-card">
+          <div class="dept-icon">
+            <!-- brain -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 20a4 4 0 0 1-4-4v-2a3 3 0 0 1 2-2.8V9a3 3 0 0 1 3-3 3 3 0 0 1 2 1"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M15 20a4 4 0 0 0 4-4v-2a3 3 0 0 0-2-2.8V9a3 3 0 0 0-3-3 3 3 0 0 0-2 1"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12 7v14"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div class="dept-title">Psychiatry Department</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-10">
+        <div class="grid gap-6 md:grid-cols-12">
+          <div class="md:col-span-6">
+            <div class="flex items-center gap-2 font-semibold">
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-sky-100 text-sky-700">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9-9 4.03-9 9 4.03 9 9 9Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M8 12h8M12 8v8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+              ProHealth
+            </div>
+            <p class="mt-3 max-w-md text-sm text-slate-600">
+              Compassionate care with exceptional results. Book appointments and explore departments
+              with ease.
+            </p>
+          </div>
+
+          <div class="md:col-span-6 md:flex md:justify-end">
+            <div class="w-full max-w-md rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p class="text-sm font-semibold text-slate-900">Get updates</p>
+              <p class="mt-1 text-xs text-slate-600">Weekly healthcare tips and clinic news.</p>
+              <form class="mt-3 flex gap-2" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                <input
+                  class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-sky-500"
+                  placeholder="Email address"
+                  type="email"
+                  required
+                />
+                <button
+                  class="rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-700"
+                  type="submit"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <p class="mt-8 text-xs text-slate-500">© <span id="year"></span> ProHealth. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div
+      id="videoModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4"
+      aria-hidden="true"
+    >
+      <div class="w-full max-w-3xl overflow-hidden rounded-2xl bg-black shadow-2xl">
+        <div class="flex items-center justify-between bg-slate-900 px-4 py-3">
+          <p class="text-sm font-semibold text-white">See how we work</p>
+          <button
+            id="closeVideo"
+            class="rounded-lg px-3 py-1.5 text-sm font-medium text-white/90 hover:bg-white/10"
+          >
+            Close
+          </button>
+        </div>
+        <div class="aspect-video w-full bg-black">
+          <!-- Replace with your own video -->
+          <iframe
+            class="h-full w-full"
+            src="https://www.youtube.com/embed/1APwq1df6Mw?rel=0"
+            title="ProHealth Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Small Tailwind component-like helpers (via classes)
+      // Apply department card styles
+      document.querySelectorAll(".dept-card").forEach((el) => {
+        el.className =
+          "dept-card group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md";
+      });
+      document.querySelectorAll(".dept-icon").forEach((el) => {
+        el.className =
+          "dept-icon grid h-12 w-12 place-items-center rounded-2xl bg-sky-50 text-sky-700 group-hover:bg-sky-100";
+      });
+      document.querySelectorAll(".dept-title").forEach((el) => {
+        el.className = "dept-title text-sm font-semibold text-slate-800";
+      });
+
+      // Footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Mobile menu
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileNav = document.getElementById("mobileNav");
+      menuBtn?.addEventListener("click", () => {
+        mobileNav.classList.toggle("hidden");
+      });
+
+      // Search modal
+      const searchBtn = document.getElementById("searchBtn");
+      const searchModal = document.getElementById("searchModal");
+      const closeSearch = document.getElementById("closeSearch");
+      const searchInput = document.getElementById("searchInput");
+
+      const openSearch = () => {
+        searchModal.classList.remove("hidden");
+        searchModal.classList.add("flex");
+        setTimeout(() => searchInput?.focus(), 0);
+      };
+      const hideSearch = () => {
+        searchModal.classList.add("hidden");
+        searchModal.classList.remove("flex");
+      };
+
+      searchBtn?.addEventListener("click", openSearch);
+      closeSearch?.addEventListener("click", hideSearch);
+      searchModal?.addEventListener("click", (e) => {
+        if (e.target === searchModal) hideSearch();
+      });
+
+      // Video modal
+      const playBtn = document.getElementById("playBtn");
+      const videoModal = document.getElementById("videoModal");
+      const closeVideo = document.getElementById("closeVideo");
+
+      const openVideo = () => {
+        videoModal.classList.remove("hidden");
+        videoModal.classList.add("flex");
+      };
+      const hideVideo = () => {
+        videoModal.classList.add("hidden");
+        videoModal.classList.remove("flex");
+
+        // Stop YouTube playback by resetting iframe src
+        const iframe = videoModal.querySelector("iframe");
+        if (iframe) {
+          const src = iframe.getAttribute("src");
+          iframe.setAttribute("src", src);
+        }
+      };
+
+      playBtn?.addEventListener("click", openVideo);
+      closeVideo?.addEventListener("click", hideVideo);
+      videoModal?.addEventListener("click", (e) => {
+        if (e.target === videoModal) hideVideo();
+      });
+
+      // ESC to close modals
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          hideSearch();
+          hideVideo();
+        }
+      });
+    </script>
+  </body>
+</html>
