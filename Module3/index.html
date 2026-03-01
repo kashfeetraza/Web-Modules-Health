@@ -1,0 +1,595 @@
+<!-- index.html — Chiropractic / Physiotherapy Landing (HTML + JS + Tailwind CDN) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chyro — Health Landing</title>
+
+    <!-- ✅ Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      /* soft pattern feel like the reference */
+      .hero-bg {
+        background:
+          radial-gradient(1200px 500px at 10% 0%, rgba(34, 197, 94, 0.10), transparent 55%),
+          radial-gradient(900px 500px at 80% 10%, rgba(56, 189, 248, 0.12), transparent 60%),
+          linear-gradient(135deg, rgba(226, 232, 240, 0.75), rgba(240, 253, 250, 0.70));
+      }
+      .dot-grid {
+        background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+        background-size: 18px 18px;
+        mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 text-slate-800">
+    <!-- NAV -->
+    <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/70 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        <!-- Brand -->
+        <a href="#" class="flex items-center gap-2">
+          <span class="grid h-9 w-9 place-items-center rounded-full bg-emerald-100 text-emerald-700">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9-9 4.03-9 9 4.03 9 9 9Z"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path
+                d="M12 7v10M7 12h10"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+          <span class="text-base font-semibold tracking-tight">Chyro</span>
+        </a>
+
+        <!-- Links -->
+        <nav class="hidden items-center gap-6 text-sm text-slate-600 md:flex">
+          <a class="hover:text-slate-900" href="#home">Home</a>
+          <a class="hover:text-slate-900" href="#about">About Us</a>
+          <a class="hover:text-slate-900" href="#services">Services</a>
+          <a class="hover:text-slate-900" href="#pages">Pages</a>
+          <a class="hover:text-slate-900" href="#contact">Contact Us</a>
+        </nav>
+
+        <!-- Right -->
+        <div class="flex items-center gap-3">
+          <div class="hidden items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 md:flex">
+            <span class="grid h-7 w-7 place-items-center rounded-full bg-slate-100 text-slate-700">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 19a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.8.3 1.6.6 2.3a2 2 0 0 1-.4 2.1L8.1 9.3a16 16 0 0 0 6.6 6.6l1.2-1.2a2 2 0 0 1 2.1-.4c.7.3 1.5.5 2.3.6a2 2 0 0 1 1.7 2Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+            <span class="font-medium">+1 (234) 567-890</span>
+          </div>
+
+          <a
+            href="#contact"
+            class="hidden rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 md:inline-flex"
+          >
+            Make Appointment
+          </a>
+
+          <button
+            id="menuBtn"
+            class="inline-flex rounded-full p-2 text-slate-700 hover:bg-slate-100 md:hidden"
+            aria-label="Open menu"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileNav" class="hidden border-t border-slate-200 bg-white md:hidden">
+        <div class="mx-auto max-w-6xl px-4 py-3">
+          <div class="grid gap-2 text-sm text-slate-700">
+            <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#home">Home</a>
+            <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#about">About Us</a>
+            <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#services">Services</a>
+            <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#pages">Pages</a>
+            <a class="rounded-xl px-3 py-2 hover:bg-slate-50" href="#contact">Contact Us</a>
+            <a class="mt-1 inline-flex items-center justify-center rounded-xl bg-emerald-600 px-3 py-2 font-semibold text-white hover:bg-emerald-700" href="#contact">
+              Make Appointment
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero-bg relative overflow-hidden">
+      <div class="dot-grid absolute inset-0 opacity-60"></div>
+
+      <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 md:grid-cols-12 md:py-16">
+        <!-- Left content -->
+        <div class="relative md:col-span-6">
+          <p class="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-slate-200/70">
+            <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+            Trusted Chiropractic & Physiotherapy
+          </p>
+
+          <h1 class="mt-4 text-4xl font-semibold leading-tight text-slate-900 md:text-5xl">
+            The Backbone<br />
+            of <span class="text-slate-400">Good</span> Health
+          </h1>
+
+          <p class="mt-4 max-w-xl text-sm leading-relaxed text-slate-600 md:text-base">
+            Support your body with evidence-based care. We combine chiropractic adjustments and physiotherapy to help you move better, feel stronger, and recover faster.
+          </p>
+
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a
+              href="#contact"
+              class="inline-flex items-center rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700"
+            >
+              Make Appointment
+            </a>
+
+            <button
+              id="playBtn"
+              class="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2.5 text-sm font-semibold text-slate-800 ring-1 ring-slate-200/70 hover:bg-white"
+            >
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-slate-900 text-white">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 7.5v9l8-4.5-8-4.5Z" fill="currentColor" />
+                </svg>
+              </span>
+              How it works
+            </button>
+          </div>
+
+          <!-- Little floating stats (left) -->
+          <div class="mt-8 flex flex-wrap gap-3">
+            <div class="rounded-2xl bg-white/80 px-4 py-3 shadow-sm ring-1 ring-slate-200/70">
+              <div class="flex items-center gap-2">
+                <span class="grid h-9 w-9 place-items-center rounded-xl bg-emerald-50 text-emerald-700">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="text-sm font-semibold">100+</div>
+                  <div class="text-xs text-slate-600">Happy Patients</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-2xl bg-white/80 px-4 py-3 shadow-sm ring-1 ring-slate-200/70">
+              <div class="flex items-center gap-2">
+                <span class="grid h-9 w-9 place-items-center rounded-xl bg-sky-50 text-sky-700">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M12 21s-8-4.6-8-11a4.5 4.5 0 0 1 8-2.7A4.5 4.5 0 0 1 20 10c0 6.4-8 11-8 11Z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <div>
+                  <div class="text-sm font-semibold">Trusted</div>
+                  <div class="text-xs text-slate-600">Clinic Care</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right image -->
+        <div class="relative md:col-span-6">
+          <div class="relative overflow-hidden rounded-[28px] border border-white/40 bg-white/30 p-2 shadow-sm">
+            <img
+              class="h-[360px] w-full rounded-[22px] object-cover md:h-[420px]"
+              src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=1400&q=80"
+              alt="Therapist helping patient"
+            />
+          </div>
+
+          <!-- Floating chips like reference -->
+          <div class="absolute right-4 top-10 hidden md:block">
+            <div class="rounded-2xl bg-white/85 px-4 py-3 shadow-sm ring-1 ring-slate-200/70">
+              <div class="text-xs font-semibold text-slate-900">2+ Practice</div>
+              <div class="text-[11px] text-slate-600">Therapist</div>
+            </div>
+          </div>
+
+          <div class="absolute bottom-8 left-4 hidden md:block">
+            <div class="rounded-2xl bg-white/85 px-4 py-3 shadow-sm ring-1 ring-slate-200/70">
+              <div class="text-xs font-semibold text-slate-900">Professional</div>
+              <div class="text-[11px] text-slate-600">Therapy Team</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- “Are you looking for” cards -->
+    <section class="mx-auto max-w-6xl px-4 py-10">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-xl font-semibold text-slate-900 md:text-2xl">Are You Looking For</h2>
+        <p class="mt-2 text-sm text-slate-600">
+          Choose the support you need. Our team provides safe, personalized care for pain relief and mobility.
+        </p>
+      </div>
+
+      <div class="mt-7 grid gap-4 md:grid-cols-3">
+        <div class="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200/70">
+          <div class="flex items-start gap-3">
+            <span class="grid h-11 w-11 place-items-center rounded-2xl bg-emerald-50 text-emerald-700">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <div>
+              <div class="text-sm font-semibold">Health Guarantee</div>
+              <p class="mt-1 text-xs leading-relaxed text-slate-600">
+                Evidence-based plans focused on safe progress and real outcomes.
+              </p>
+              <a href="#services" class="mt-3 inline-flex text-xs font-semibold text-emerald-700 hover:text-emerald-800">Learn More →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200/70">
+          <div class="flex items-start gap-3">
+            <span class="grid h-11 w-11 place-items-center rounded-2xl bg-sky-50 text-sky-700">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 21s-8-4.6-8-11a4.5 4.5 0 0 1 8-2.7A4.5 4.5 0 0 1 20 10c0 6.4-8 11-8 11Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+            <div>
+              <div class="text-sm font-semibold">Trusted Clinic</div>
+              <p class="mt-1 text-xs leading-relaxed text-slate-600">
+                Friendly specialists and modern equipment for comfortable care.
+              </p>
+              <a href="#about" class="mt-3 inline-flex text-xs font-semibold text-sky-700 hover:text-sky-800">Learn More →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200/70">
+          <div class="flex items-start gap-3">
+            <span class="grid h-11 w-11 place-items-center rounded-2xl bg-amber-50 text-amber-700">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <path
+                  d="M20 21a8 8 0 0 0-16 0"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <div>
+              <div class="text-sm font-semibold">Expert Therapist</div>
+              <p class="mt-1 text-xs leading-relaxed text-slate-600">
+                Certified clinicians with personalized recovery programs.
+              </p>
+              <a href="#contact" class="mt-3 inline-flex text-xs font-semibold text-amber-700 hover:text-amber-800">Learn More →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT split -->
+    <section id="about" class="mx-auto max-w-6xl px-4 pb-10">
+      <div class="grid items-center gap-8 md:grid-cols-12">
+        <div class="md:col-span-6">
+          <div class="relative overflow-hidden rounded-[28px] bg-white p-2 shadow-sm ring-1 ring-slate-200/70">
+            <img
+              class="h-[340px] w-full rounded-[22px] object-cover md:h-[380px]"
+              src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=1400&q=80"
+              alt="Doctors"
+            />
+          </div>
+        </div>
+
+        <div class="md:col-span-6">
+          <p class="text-xs font-semibold tracking-widest text-emerald-700">ABOUT US</p>
+          <h3 class="mt-2 text-3xl font-semibold leading-tight text-slate-900 md:text-4xl">
+            Empower Your Life<br />
+            with Chiropractic Care
+          </h3>
+          <p class="mt-4 text-sm leading-relaxed text-slate-600 md:text-base">
+            We focus on long-term results using a blend of manual therapy, mobility work, and posture correction.
+            Get the support you need to reduce pain, restore motion, and improve everyday performance.
+          </p>
+
+          <div class="mt-6 flex flex-wrap items-center gap-6">
+            <div class="rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-slate-200/70">
+              <div class="text-sm font-semibold">Bastian Spitul</div>
+              <div class="text-xs text-slate-600">Senior Chiropractor</div>
+            </div>
+            <div class="rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-slate-200/70">
+              <div class="text-sm font-semibold">Charles Joseph</div>
+              <div class="text-xs text-slate-600">Physiotherapist</div>
+            </div>
+          </div>
+
+          <div class="mt-7">
+            <a href="#contact" class="inline-flex items-center rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-800">
+              Contact Specialist
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Logo strip -->
+    <section class="bg-slate-900/60">
+      <div class="mx-auto max-w-6xl px-4 py-7">
+        <div class="flex flex-wrap items-center justify-between gap-4 text-white/80">
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-white/80"></span>
+            <span class="text-xs font-semibold tracking-widest">MOTIONLY</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-white/80"></span>
+            <span class="text-xs font-semibold tracking-widest">KINESIUM</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-white/80"></span>
+            <span class="text-xs font-semibold tracking-widest">LOGO</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-white/80"></span>
+            <span class="text-xs font-semibold tracking-widest">DOCTIFY</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="mx-auto max-w-6xl px-4 py-12">
+      <div class="grid gap-6 md:grid-cols-12 md:items-end">
+        <div class="md:col-span-6">
+          <p class="text-xs font-semibold tracking-widest text-emerald-700">BEST SERVICES</p>
+          <h2 class="mt-2 text-3xl font-semibold text-slate-900 md:text-4xl">Best Services</h2>
+          <p class="mt-3 max-w-xl text-sm text-slate-600 md:text-base">
+            From chiropractic adjustments to targeted therapy sessions—get care that fits your goals.
+          </p>
+        </div>
+        <div class="md:col-span-6 md:flex md:justify-end">
+          <a href="#contact" class="inline-flex items-center rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-emerald-700">
+            View All Services
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        <!-- Service card -->
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200/70">
+          <div class="flex items-center gap-3">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-50 text-emerald-700">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M9 12h6M12 9v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M7 21h10a2 2 0 0 0 2-2v-7a7 7 0 1 0-14 0v7a2 2 0 0 0 2 2Z" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </span>
+            <div class="text-sm font-semibold">Chiropractic Care</div>
+          </div>
+          <p class="mt-3 text-sm text-slate-600">
+            Spinal adjustments to relieve pain, improve posture, and restore mobility.
+          </p>
+          <a class="mt-4 inline-flex text-sm font-semibold text-emerald-700 hover:text-emerald-800" href="#">Read More →</a>
+        </div>
+
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200/70">
+          <div class="flex items-center gap-3">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-sky-50 text-sky-700">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M7 21c2-2 2-5 2-8s1-5 3-7 5-2 7-1"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M17 21c-2-2-2-5-2-8s-1-5-3-7"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <div class="text-sm font-semibold">Massage Therapy</div>
+          </div>
+          <p class="mt-3 text-sm text-slate-600">
+            Reduce stress and muscle tension with guided therapeutic massage.
+          </p>
+          <a class="mt-4 inline-flex text-sm font-semibold text-sky-700 hover:text-sky-800" href="#">Read More →</a>
+        </div>
+
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200/70">
+          <div class="flex items-center gap-3">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-amber-50 text-amber-700">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 20V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M8 14h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M6 20h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M9 7a3 3 0 1 1 6 0c0 1.5-1 2.5-3 3-2-.5-3-1.5-3-3Z" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </span>
+            <div class="text-sm font-semibold">Laser Therapy</div>
+          </div>
+          <p class="mt-3 text-sm text-slate-600">
+            Non-invasive therapy to support healing and reduce inflammation.
+          </p>
+          <a class="mt-4 inline-flex text-sm font-semibold text-amber-700 hover:text-amber-800" href="#">Read More →</a>
+        </div>
+
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200/70">
+          <div class="flex items-center gap-3">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-50 text-emerald-700">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M12 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </span>
+            <div class="text-sm font-semibold">Sports Chiropractic</div>
+          </div>
+          <p class="mt-3 text-sm text-slate-600">
+            Performance-focused care for athletes and active lifestyles.
+          </p>
+          <a class="mt-4 inline-flex text-sm font-semibold text-emerald-700 hover:text-emerald-800" href="#">Read More →</a>
+        </div>
+
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200/70">
+          <div class="flex items-center gap-3">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-sky-50 text-sky-700">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M7 7h10v10H7z" stroke="currentColor" stroke-width="2" />
+                <path d="M10 10h4v4h-4z" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </span>
+            <div class="text-sm font-semibold">Posture Therapy</div>
+          </div>
+          <p class="mt-3 text-sm text-slate-600">
+            Correct imbalances and strengthen core patterns for daily comfort.
+          </p>
+          <a class="mt-4 inline-flex text-sm font-semibold text-sky-700 hover:text-sky-800" href="#">Read More →</a>
+        </div>
+
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200/70">
+          <div class="flex items-center gap-3">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-amber-50 text-amber-700">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M8 21c0-4 2-7 4-7s4 3 4 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M12 14V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </span>
+            <div class="text-sm font-semibold">Pediatric Chiro</div>
+          </div>
+          <p class="mt-3 text-sm text-slate-600">
+            Gentle care for kids to support posture, comfort, and development.
+          </p>
+          <a class="mt-4 inline-flex text-sm font-semibold text-amber-700 hover:text-amber-800" href="#">Read More →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT (simple footer) -->
+    <footer id="contact" class="border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-10">
+        <div class="grid gap-6 md:grid-cols-12">
+          <div class="md:col-span-6">
+            <div class="flex items-center gap-2 font-semibold">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-emerald-100 text-emerald-700">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9-9 4.03-9 9 4.03 9 9 9Z" stroke="currentColor" stroke-width="2" />
+                  <path d="M12 7v10M7 12h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </span>
+              Chyro Clinic
+            </div>
+            <p class="mt-3 max-w-md text-sm text-slate-600">
+              Book a visit and start moving better. Personalized plans, friendly care, real outcomes.
+            </p>
+          </div>
+
+          <div class="md:col-span-6 md:flex md:justify-end">
+            <div class="w-full max-w-md rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p class="text-sm font-semibold text-slate-900">Make an appointment</p>
+              <p class="mt-1 text-xs text-slate-600">We’ll contact you within 24 hours.</p>
+
+              <form class="mt-3 grid gap-2" onsubmit="event.preventDefault(); alert('Request sent!');">
+                <input class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-emerald-500" placeholder="Full name" required />
+                <input class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-emerald-500" placeholder="Phone number" required />
+                <button class="rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-700" type="submit">
+                  Send Request
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <p class="mt-8 text-xs text-slate-500">© <span id="year"></span> Chyro. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- VIDEO MODAL -->
+    <div id="videoModal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/60 p-4">
+      <div class="w-full max-w-3xl overflow-hidden rounded-2xl bg-black shadow-2xl">
+        <div class="flex items-center justify-between bg-slate-900 px-4 py-3">
+          <p class="text-sm font-semibold text-white">How it works</p>
+          <button id="closeVideo" class="rounded-lg px-3 py-1.5 text-sm font-medium text-white/90 hover:bg-white/10">Close</button>
+        </div>
+        <div class="aspect-video w-full bg-black">
+          <iframe
+            class="h-full w-full"
+            src="https://www.youtube.com/embed/1APwq1df6Mw?rel=0"
+            title="Clinic Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // mobile menu
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileNav = document.getElementById("mobileNav");
+      menuBtn?.addEventListener("click", () => mobileNav.classList.toggle("hidden"));
+
+      // video modal
+      const playBtn = document.getElementById("playBtn");
+      const videoModal = document.getElementById("videoModal");
+      const closeVideo = document.getElementById("closeVideo");
+
+      const openVideo = () => {
+        videoModal.classList.remove("hidden");
+        videoModal.classList.add("flex");
+      };
+      const hideVideo = () => {
+        videoModal.classList.add("hidden");
+        videoModal.classList.remove("flex");
+        // stop playback
+        const iframe = videoModal.querySelector("iframe");
+        if (iframe) {
+          const src = iframe.getAttribute("src");
+          iframe.setAttribute("src", src);
+        }
+      };
+
+      playBtn?.addEventListener("click", openVideo);
+      closeVideo?.addEventListener("click", hideVideo);
+      videoModal?.addEventListener("click", (e) => {
+        if (e.target === videoModal) hideVideo();
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") hideVideo();
+      });
+    </script>
+  </body>
+</html>
