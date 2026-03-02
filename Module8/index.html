@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Landing 03</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      /* tiny helpers for diagonal corners */
+      .diag-top-left {
+        clip-path: polygon(0 0, 80px 0, 0 80px);
+      }
+      .diag-bot-right {
+        clip-path: polygon(100% 100%, calc(100% - 90px) 100%, 100% calc(100% - 90px));
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-slate-900">
+    <!-- HEADER -->
+    <header class="relative">
+      <!-- Diagonal corner accents like screenshot -->
+      <div class="pointer-events-none absolute left-0 top-0 h-20 w-20 bg-slate-900 diag-top-left"></div>
+      <div class="pointer-events-none absolute bottom-0 right-0 h-24 w-24 bg-slate-900 diag-bot-right"></div>
+
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="flex items-center justify-between py-4">
+          <nav class="hidden gap-6 text-sm font-semibold text-slate-700 md:flex">
+            <a class="hover:text-sky-600" href="#home">Home</a>
+            <a class="hover:text-sky-600" href="#about">About</a>
+            <a class="hover:text-sky-600" href="#services">Services</a>
+            <a class="hover:text-sky-600" href="#gallery">Gallery</a>
+            <a class="hover:text-sky-600" href="#blog">Blog</a>
+            <a class="hover:text-sky-600" href="#contact">Contact us</a>
+          </nav>
+
+          <!-- Mobile menu btn -->
+          <button
+            id="menuBtn"
+            class="md:hidden grid h-10 w-10 place-items-center rounded-xl border border-slate-200 hover:bg-slate-50"
+            aria-label="Menu"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+
+          <!-- Social -->
+          <div class="flex items-center gap-3 text-slate-600">
+            <a class="hover:text-sky-600" href="#" aria-label="Facebook">f</a>
+            <a class="hover:text-sky-600" href="#" aria-label="Google+">g+</a>
+            <a class="hover:text-sky-600" href="#" aria-label="VK">vk</a>
+            <a class="hover:text-sky-600" href="#" aria-label="Behance">be</a>
+            <a class="hover:text-sky-600" href="#" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+
+        <!-- Mobile dropdown -->
+        <div id="mobileMenu" class="hidden pb-4 md:hidden">
+          <div class="grid gap-3 text-sm font-semibold text-slate-700">
+            <a class="hover:text-sky-600" href="#home">Home</a>
+            <a class="hover:text-sky-600" href="#about">About</a>
+            <a class="hover:text-sky-600" href="#services">Services</a>
+            <a class="hover:text-sky-600" href="#gallery">Gallery</a>
+            <a class="hover:text-sky-600" href="#blog">Blog</a>
+            <a class="hover:text-sky-600" href="#contact">Contact us</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="relative overflow-hidden bg-[#edf2f7]">
+      <div class="absolute inset-0 bg-gradient-to-r from-[#f6f8fb] via-[#eef3f8] to-[#e9eff7]"></div>
+
+      <div class="relative mx-auto max-w-6xl px-4 py-14 md:py-16">
+        <div class="grid items-center gap-10 md:grid-cols-2">
+          <!-- Left -->
+          <div>
+            <h1 class="text-4xl font-extrabold leading-tight text-slate-800 md:text-5xl">
+              We have Best Medicare <br />
+              plan options for you
+            </h1>
+            <p class="mt-4 max-w-md text-sm leading-6 text-slate-600">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+              doloremque laudantium.
+            </p>
+
+            <a
+              href="#about"
+              class="mt-7 inline-flex rounded-full bg-sky-600 px-7 py-3 text-sm font-bold text-white shadow hover:bg-sky-700"
+            >
+              READ MORE
+            </a>
+          </div>
+
+          <!-- Right doctor image -->
+          <div class="relative">
+            <div class="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-white/50 blur-3xl"></div>
+            <img
+              class="mx-auto h-[360px] w-full max-w-xl rounded-3xl object-cover"
+              src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=1200&q=80"
+              alt="Doctor"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE STRIP (4 items gradient) -->
+    <section id="services" class="bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500">
+      <div class="mx-auto max-w-6xl px-4 py-12">
+        <div class="grid gap-8 md:grid-cols-4">
+          <!-- Card -->
+          <div class="text-center text-white">
+            <div class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-white/15">
+              <!-- stethoscope -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M7 3v5a5 5 0 0 0 10 0V3" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 13v3a5 5 0 0 0 10 0v-2" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <path d="M6 3h3M15 3h3" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="20" cy="14" r="2" stroke="white" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3 class="mt-4 text-base font-extrabold">Best Treatment</h3>
+            <p class="mt-2 text-xs leading-5 text-white/85">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+            </p>
+          </div>
+
+          <div class="text-center text-white">
+            <div class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-white/15">
+              <!-- phone -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M6.6 10.8c2.1 4 4.6 6.5 8.6 8.6l2.1-2.1c.3-.3.8-.4 1.2-.2 1 .4 2.1.7 3.2.8.6.1 1.1.6 1.1 1.2V21c0 .7-.6 1.2-1.3 1.2C10.7 22.2 1.8 13.3 1.8 2.6 1.8 1.9 2.4 1.4 3 1.4H6c.6 0 1.1.5 1.2 1.1.1 1.1.4 2.2.8 3.2.1.4.1.9-.2 1.2L6.6 10.8Z"
+                  fill="white" opacity=".9"/>
+              </svg>
+            </div>
+            <h3 class="mt-4 text-base font-extrabold">Emergency Help</h3>
+            <p class="mt-2 text-xs leading-5 text-white/85">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+            </p>
+          </div>
+
+          <div class="text-center text-white">
+            <div class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-white/15">
+              <!-- staff -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M16 11a4 4 0 1 0-8 0" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <path d="M4 20c1.5-3 4.3-5 8-5s6.5 2 8 5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 11V7" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="mt-4 text-base font-extrabold">Medical Staff</h3>
+            <p class="mt-2 text-xs leading-5 text-white/85">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+            </p>
+          </div>
+
+          <div class="text-center text-white">
+            <div class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-white/15">
+              <!-- shield -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2 20 6v7c0 5-3.5 9-8 9s-8-4-8-9V6l8-4Z" stroke="white" stroke-width="2"/>
+                <path d="M12 7v8M8 11h8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="mt-4 text-base font-extrabold">Qualified Doctors</h3>
+            <p class="mt-2 text-xs leading-5 text-white/85">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="about" class="bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold">Why Choose Us ?</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+            doloremque laudantium, totam rem aperiam.
+          </p>
+        </div>
+
+        <div class="mt-12 grid items-center gap-10 md:grid-cols-3">
+          <!-- Left items -->
+          <div class="space-y-10">
+            <div class="flex gap-4">
+              <span class="mt-1 grid h-12 w-12 place-items-center rounded-full bg-sky-100 text-sky-700">
+                <!-- snowflake-ish -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2v20M4 6l16 12M20 6 4 18" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <div>
+                <div class="font-extrabold text-slate-800">Professional</div>
+                <p class="mt-1 text-sm text-slate-600">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="mt-1 grid h-12 w-12 place-items-center rounded-full bg-sky-100 text-sky-700">
+                <!-- microscope -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 20h12" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M9 17a6 6 0 1 0 6-10" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M10 10l2-2 3 3-2 2-3-3Z" stroke="#0284c7" stroke-width="2"/>
+                </svg>
+              </span>
+              <div>
+                <div class="font-extrabold text-slate-800">Professional</div>
+                <p class="mt-1 text-sm text-slate-600">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Center doctor -->
+          <div class="relative">
+            <div class="absolute -inset-6 rounded-[2.5rem] bg-sky-50 blur-2xl"></div>
+            <img
+              class="relative mx-auto h-[420px] w-full max-w-sm rounded-3xl object-cover shadow-lg"
+              src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=900&q=80"
+              alt="Doctor"
+            />
+          </div>
+
+          <!-- Right items -->
+          <div class="space-y-10">
+            <div class="flex gap-4">
+              <span class="mt-1 grid h-12 w-12 place-items-center rounded-full bg-sky-100 text-sky-700">
+                <!-- heart -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.6-7 10-7 10Z"
+                    stroke="#0284c7" stroke-width="2"/>
+                </svg>
+              </span>
+              <div>
+                <div class="font-extrabold text-slate-800">Professional</div>
+                <p class="mt-1 text-sm text-slate-600">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="mt-1 grid h-12 w-12 place-items-center rounded-full bg-sky-100 text-sky-700">
+                <!-- atom -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 12c2.2-2.2 6.6-3.6 8.5-1.7s.5 6.3-1.7 8.5-6.6 3.6-8.5 1.7-.5-6.3 1.7-8.5Z"
+                    stroke="#0284c7" stroke-width="2" opacity=".9"/>
+                  <path d="M12 12c-2.2-2.2-3.6-6.6-1.7-8.5s6.3-.5 8.5 1.7 3.6 6.6 1.7 8.5-6.3.5-8.5-1.7Z"
+                    stroke="#0284c7" stroke-width="2" opacity=".9"/>
+                  <circle cx="12" cy="12" r="2" fill="#0284c7"/>
+                </svg>
+              </span>
+              <div>
+                <div class="font-extrabold text-slate-800">Professional</div>
+                <p class="mt-1 text-sm text-slate-600">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <section class="relative overflow-hidden bg-gradient-to-r from-sky-700 via-sky-600 to-cyan-600">
+      <div class="pointer-events-none absolute inset-0 opacity-25">
+        <div class="absolute right-0 top-0 h-80 w-80 rounded-full bg-white blur-3xl"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-6xl px-4 py-14">
+        <div class="grid gap-10 text-center text-white md:grid-cols-4">
+          <div>
+            <div class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-white/10">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2v20M5 6h14M7 10h10M9 14h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mt-4 text-4xl font-extrabold">
+              <span class="counter" data-target="1000">0</span>+
+            </div>
+          </div>
+
+          <div>
+            <div class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-white/10">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M7 3v4M17 3v4M4 9h16M6 21h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z"
+                  stroke="white" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mt-4 text-4xl font-extrabold">
+              <span class="counter" data-target="2017">0</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-white/10">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M4 20h16M7 20V9a5 5 0 0 1 10 0v11" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <path d="M10 12h4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mt-4 text-4xl font-extrabold">
+              <span class="counter" data-target="1105">0</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-white/10">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2c4.4 0 8 3.6 8 8 0 5.3-8 12-8 12S4 15.3 4 10c0-4.4 3.6-8 8-8Z"
+                  stroke="white" stroke-width="2"/>
+                <path d="M12 7v6M9 10h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mt-4 text-4xl font-extrabold">
+              <span class="counter" data-target="500">0</span>+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
