@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delmont – Medical Landing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+  <!-- TOP MINI BAR -->
+  <div class="bg-[#0b4c57] text-white">
+    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-2 text-[11px] md:flex-row md:items-center md:justify-between">
+      <div class="flex flex-wrap items-center gap-4 text-white/90">
+        <span class="inline-flex items-center gap-2">
+          <span class="grid h-5 w-5 place-items-center rounded-full bg-white/10">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s-7-4.4-7-10a7 7 0 0 1 14 0c0 5.6-7 10-7 10Z" fill="white" opacity=".9"/>
+            </svg>
+          </span>
+          234 Triumph, Los Angeles, California, US
+        </span>
+
+        <span class="inline-flex items-center gap-2">
+          <span class="grid h-5 w-5 place-items-center rounded-full bg-white/10">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+              <path d="M7 2v4M17 2v4M4 8h16M6 22h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2Z"
+                stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          Mon - Sat: 8:00 - 18:00, Sunday CLOSED
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a class="hover:text-white/80" href="#" aria-label="Facebook">f</a>
+        <a class="hover:text-white/80" href="#" aria-label="Twitter">t</a>
+        <a class="hover:text-white/80" href="#" aria-label="Pinterest">p</a>
+        <a class="hover:text-white/80" href="#" aria-label="LinkedIn">in</a>
+
+        <a href="#contact"
+           class="ml-2 rounded-full bg-[#11b8a6] px-3 py-1 font-semibold text-white hover:bg-[#0fa493]">
+          GET A APPOINTMENT!
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAV -->
+  <header class="bg-white shadow-sm">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="flex items-center justify-between py-5">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-[#11b8a6]/10 text-[#0b4c57]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2c4.4 0 8 3.6 8 8 0 5.3-8 12-8 12S4 15.3 4 10c0-4.4 3.6-8 8-8Z" fill="#11b8a6" opacity=".35"/>
+              <path d="M12 7v8M8 11h8" stroke="#0b4c57" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="text-lg font-extrabold tracking-tight text-[#0b4c57]">
+            Delm<span class="text-[#11b8a6]">o</span>nt
+          </span>
+        </a>
+
+        <!-- Links -->
+        <nav class="hidden items-center gap-7 text-sm font-semibold text-slate-700 md:flex">
+          <a class="hover:text-[#11b8a6]" href="#home">Home</a>
+          <a class="hover:text-[#11b8a6]" href="#pages">Pages</a>
+          <a class="hover:text-[#11b8a6]" href="#research">Research</a>
+          <a class="hover:text-[#11b8a6]" href="#services">Services</a>
+          <a class="hover:text-[#11b8a6]" href="#blog">Blog</a>
+
+          <button id="searchBtn" class="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 hover:bg-slate-50" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#0f172a" stroke-width="2"/>
+              <path d="M16.5 16.5 21 21" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </nav>
+
+        <!-- Mobile -->
+        <div class="flex items-center gap-2 md:hidden">
+          <button id="searchBtnMobile" class="grid h-10 w-10 place-items-center rounded-lg border border-slate-200 hover:bg-slate-50" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#0f172a" stroke-width="2"/>
+              <path d="M16.5 16.5 21 21" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+
+          <button id="menuBtn" class="grid h-10 w-10 place-items-center rounded-lg border border-slate-200 hover:bg-slate-50" aria-label="Menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Feature cards row (under nav like screenshot) -->
+      <div class="grid gap-3 pb-5 md:grid-cols-4">
+        <div class="flex items-center gap-3 rounded-xl border border-slate-100 bg-white p-3 shadow-sm">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-[#11b8a6]/10 text-[#0b4c57]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2c4.4 0 8 3.6 8 8 0 5.3-8 12-8 12S4 15.3 4 10c0-4.4 3.6-8 8-8Z" fill="#11b8a6" opacity=".25"/>
+              <path d="M12 7v8M8 11h8" stroke="#0b4c57" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <div>
+            <div class="text-xs font-extrabold text-slate-900">Number 1 Hospital</div>
+            <div class="text-[11px] text-slate-500">In United States</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 rounded-xl border border-slate-100 bg-white p-3 shadow-sm">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-[#11b8a6]/10 text-[#0b4c57]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 20h16M7 20V9a5 5 0 0 1 10 0v11" stroke="#0b4c57" stroke-width="2" stroke-linecap="round"/>
+              <path d="M10 12h4" stroke="#11b8a6" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <div>
+            <div class="text-xs font-extrabold text-slate-900">Personal Cabinet</div>
+            <div class="text-[11px] text-slate-500">Qualified Staff</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 rounded-xl border border-slate-100 bg-white p-3 shadow-sm">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-[#11b8a6]/10 text-[#0b4c57]">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 6h16v12H4V6Z" fill="#11b8a6" opacity=".2"/>
+              <path d="M7 9h10M7 12h6M7 15h8" stroke="#0b4c57" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <div>
+            <div class="text-xs font-extrabold text-slate-900">Get Result Online</div>
+            <div class="text-[11px] text-slate-500">Satisfied Patients</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 rounded-xl bg-[#11b8a6] p-3 text-white shadow-sm">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-white/15">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M6.6 10.8c2.1 4 4.6 6.5 8.6 8.6l2.1-2.1c.3-.3.8-.4 1.2-.2 1 .4 2.1.7 3.2.8.6.1 1.1.6 1.1 1.2V21c0 .7-.6 1.2-1.3 1.2C10.7 22.2 1.8 13.3 1.8 2.6 1.8 1.9 2.4 1.4 3 1.4H6c.6 0 1.1.5 1.2 1.1.1 1.1.4 2.2.8 3.2.1.4.1.9-.2 1.2L6.6 10.8Z"
+                fill="white" opacity=".95"/>
+            </svg>
+          </span>
+          <div>
+            <div class="text-xs font-extrabold">Toll Free : 123 456 78910</div>
+            <div class="text-[11px] text-white/80">24/7 Emergency</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile dropdown links -->
+      <div id="mobileMenu" class="hidden border-t border-slate-100 pb-5 md:hidden">
+        <div class="grid gap-3 pt-4 text-sm font-semibold text-slate-700">
+          <a class="hover:text-[#11b8a6]" href="#home">Home</a>
+          <a class="hover:text-[#11b8a6]" href="#pages">Pages</a>
+          <a class="hover:text-[#11b8a6]" href="#research">Research</a>
+          <a class="hover:text-[#11b8a6]" href="#services">Services</a>
+          <a class="hover:text-[#11b8a6]" href="#blog">Blog</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SEARCH MODAL -->
+  <div id="searchModal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative mx-auto mt-24 w-[92%] max-w-lg rounded-2xl bg-white p-4 shadow-xl">
+      <div class="flex items-center gap-2">
+        <input id="searchInput"
+          class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-[#11b8a6]"
+          placeholder="Search doctors, services, research..." />
+        <button id="closeSearch" class="rounded-xl border border-slate-200 px-3 py-3 text-sm hover:bg-slate-50">
+          Close
+        </button>
+      </div>
+      <p class="mt-3 text-xs text-slate-500">Demo UI only. Press <span class="font-semibold">Esc</span> to close.</p>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="relative overflow-hidden">
+    <!-- background image -->
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1580281658626-ee379f3cce93?auto=format&fit=crop&w=1400&q=80"
+        alt="Medical team"
+        class="h-full w-full object-cover"
+      />
+      <!-- dark overlay -->
+      <div class="absolute inset-0 bg-[#083e49]/85"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-6xl px-4 py-14 md:py-20">
+      <div class="grid items-center gap-10 md:grid-cols-2">
+        <!-- Left text -->
+        <div class="text-white">
+          <div class="flex items-center gap-2 text-xs font-semibold tracking-widest text-white/75">
+            <span class="h-[2px] w-8 bg-[#11b8a6]"></span>
+            WE GIVE YOU THE BEST!
+          </div>
+
+          <h1 class="mt-4 text-4xl font-extrabold leading-tight md:text-5xl">
+            Medical Services <br />
+            That You Can Trust
+          </h1>
+
+          <p class="mt-4 max-w-md text-sm leading-6 text-white/75">
+            Need professional help? Our support staff will answer your questions.
+            Visit us now or make an appointment!
+          </p>
+
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <a href="#contact"
+               class="rounded-md border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold hover:bg-white/15">
+              MAKE AN APPOINTMENT!
+            </a>
+
+            <a href="#services"
+               class="rounded-md bg-[#11b8a6] px-5 py-3 text-sm font-semibold text-white hover:bg-[#0fa493]">
+              OUR SERVICES
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: "Doctor card" like screenshot -->
+        <div class="relative">
+          <div class="mx-auto max-w-sm rounded-2xl bg-white/10 p-5 backdrop-blur">
+            <div class="flex items-center gap-4">
+              <img
+                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&q=80"
+                class="h-16 w-16 rounded-2xl object-cover"
+                alt="Doctor"
+              />
+              <div class="text-white">
+                <div class="text-sm font-extrabold">Dr. Alex Murray</div>
+                <div class="text-xs text-white/70">Get an Appointment</div>
+              </div>
+              <button class="ml-auto grid h-10 w-10 place-items-center rounded-xl bg-[#11b8a6] text-white hover:bg-[#0fa493]" aria-label="Chat">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M21 14a6 6 0 0 1-6 6H8l-5 3 1.5-5A8 8 0 1 1 21 14Z" fill="white" opacity=".95"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- services icons row (overlapping white card like screenshot) -->
+      <div class="relative mt-12">
+        <div class="mx-auto max-w-5xl rounded-2xl bg-white p-6 shadow-xl">
+          <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-5">
+            <!-- item -->
+            <a href="#" class="group rounded-xl p-3 text-center hover:bg-slate-50">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-[#11b8a6]/10 text-[#0b4c57] group-hover:bg-[#11b8a6]/15">
+                🦷
+              </div>
+              <div class="mt-3 text-sm font-extrabold">Oral Care</div>
+              <div class="text-[11px] text-slate-500">The Smiling Teeth</div>
+            </a>
+
+            <a href="#" class="group rounded-xl p-3 text-center hover:bg-slate-50">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-[#11b8a6]/10 text-[#0b4c57] group-hover:bg-[#11b8a6]/15">
+                💪
+              </div>
+              <div class="mt-3 text-sm font-extrabold">Heal Body</div>
+              <div class="text-[11px] text-slate-500">A Small Member</div>
+            </a>
+
+            <a href="#" class="group rounded-xl p-3 text-center hover:bg-slate-50">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-[#11b8a6]/10 text-[#0b4c57] group-hover:bg-[#11b8a6]/15">
+                🚑
+              </div>
+              <div class="mt-3 text-sm font-extrabold">Ambulance</div>
+              <div class="text-[11px] text-slate-500">Visiting Via Air</div>
+            </a>
+
+            <a href="#" class="group rounded-xl p-3 text-center hover:bg-slate-50">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-[#11b8a6]/10 text-[#0b4c57] group-hover:bg-[#11b8a6]/15">
+                💊
+              </div>
+              <div class="mt-3 text-sm font-extrabold">Drug Store</div>
+              <div class="text-[11px] text-slate-500">A Retailer Shop</div>
+            </a>
+
+            <a href="#" class="group rounded-xl p-3 text-center hover:bg-slate-50">
+              <div class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-[#11b8a6]/10 text-[#0b4c57] group-hover:bg-[#11b8a6]/15">
+                👁️
+              </div>
+              <div class="mt-3 text-sm font-extrabold">Eye Care</div>
+              <div class="text-[11px] text-slate-500">Sharing Vision</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / RESEARCH SECTION -->
+  <section id="research" class="bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <div class="grid items-center gap-10 md:grid-cols-2">
+        <!-- Left text -->
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-slate-500">Our Medical</div>
+          <h2 class="mt-2 text-3xl font-extrabold leading-tight text-slate-900">
+            We’re Setting the Standards in <br class="hidden md:block" />
+            Research &amp; Clinical Care
+          </h2>
+
+          <p class="mt-4 text-sm leading-6 text-slate-600">
+            We provide the most full medical service, so every person could have the opportunity
+            to receive qualitative medical help. Our clinic has grown to provide a world-class
+            facility for the treatment of tooth loss, dental cosmetics and advanced restorative dentistry.
+          </p>
+
+          <div class="mt-6 rounded-2xl bg-slate-50 p-5">
+            <div class="text-sm font-extrabold text-slate-900">Delmont Special Features</div>
+            <div class="mt-4 grid gap-3 text-sm text-slate-700 sm:grid-cols-2">
+              <div class="flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-[#11b8a6]"></span>
+                Adult Trauma Center
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-[#11b8a6]"></span>
+                Children’s Trauma Center
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-[#11b8a6]"></span>
+                Birthing and Lactation Class
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-[#11b8a6]"></span>
+                Heart and Vascular Institute
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-[#11b8a6]"></span>
+                Dental and Oral Surgery
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-[#11b8a6]"></span>
+                Plastic Surgery
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a href="#services" class="rounded-md border border-slate-200 bg-white px-5 py-3 text-sm font-semibold hover:bg-slate-50">
+              VIEW MORE
+            </a>
+            <a href="#contact" class="rounded-md bg-[#11b8a6] px-5 py-3 text-sm font-semibold text-white hover:bg-[#0fa493]">
+              CONTACT US
+            </a>
+          </div>
+        </div>
+
+        <!-- Right image -->
+        <div class="relative">
+          <div class="absolute -inset-6 rounded-[2.5rem] bg-[#11b8a6]/10 blur-2xl"></div>
+          <div class="relative overflow-hidden rounded-3xl bg-slate-100 shadow-xl">
+            <img
+              src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80"
+              alt="Nurse"
+              class="h-[420px] w-full object-cover"
+            />
+            <div class="absolute bottom-4 left-4 rounded-xl bg-[#0b4c57]/90 px-4 py-2 text-xs font-semibold text-white">
+              We ❤ To Care our Patients!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="border-t border-slate-100 bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-14">
+      <div class="grid gap-8 md:grid-cols-2 md:items-center">
+        <div>
+          <h3 class="text-2xl font-extrabold">Make an Appointment</h3>
+          <p class="mt-2 text-sm text-slate-600">This is a front-end layout. Connect it to your backend later.</p>
+        </div>
+
+        <form class="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+          <div class="grid gap-4">
+            <input class="rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-[#11b8a6]" placeholder="Full name" />
+            <input class="rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-[#11b8a6]" placeholder="Email address" />
+            <textarea class="min-h-[110px] rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-[#11b8a6]" placeholder="Message"></textarea>
+            <button type="button"
+              class="rounded-md bg-[#11b8a6] px-5 py-3 text-sm font-semibold text-white hover:bg-[#0fa493]"
+              onclick="alert('Demo: Appointment request sent!')">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-white py-6 text-center text-xs text-slate-500">
+    © <span id="year"></span> Delmont. All rights reserved.
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
