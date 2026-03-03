@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LabtechCO – Landing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* angled corner shape on header like screenshot */
+    .header-angle {
+      clip-path: polygon(0 0, 72% 0, 68% 100%, 0 100%);
+    }
+    /* subtle diagonal accent bottom-left (optional) */
+    .diag-accent {
+      clip-path: polygon(0 0, 80px 0, 0 80px);
+    }
+  </style>
+</head>
+
+<body class="bg-[#f3f6fb] text-slate-900">
+  <!-- HEADER -->
+  <header class="relative bg-[#2f66c4] text-white">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="flex items-center justify-between py-4">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2 font-extrabold tracking-tight">
+          <span class="grid h-9 w-9 place-items-center rounded-xl bg-white/15">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M10 2h4v4l5 9a4 4 0 0 1-3.5 6H8.5A4 4 0 0 1 5 15l5-9V2Z"
+                stroke="white" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M8 12h8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span>LabtechCO</span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden items-center gap-6 text-xs font-bold uppercase tracking-wide md:flex">
+          <a class="hover:text-white/80" href="#home">Home</a>
+          <a class="hover:text-white/80" href="#pages">Pages</a>
+          <a class="hover:text-white/80" href="#research">Research</a>
+          <a class="hover:text-white/80" href="#services">Services</a>
+          <a class="hover:text-white/80" href="#blog">Blog</a>
+          <a class="hover:text-white/80" href="#contacts">Contacts</a>
+
+          <button class="ml-2 grid h-9 w-9 place-items-center rounded-lg bg-white/15 hover:bg-white/20" aria-label="Cart">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M7 7h14l-1.5 8H8L7 7Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M7 7 6 3H3" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="9" cy="20" r="1.5" fill="white"/>
+              <circle cx="18" cy="20" r="1.5" fill="white"/>
+            </svg>
+          </button>
+
+          <button class="grid h-9 w-9 place-items-center rounded-lg bg-white/15 hover:bg-white/20" aria-label="Search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="white" stroke-width="2"/>
+              <path d="M16.5 16.5 21 21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </nav>
+
+        <!-- Mobile menu -->
+        <button id="menuBtn"
+          class="md:hidden grid h-10 w-10 place-items-center rounded-lg bg-white/15 hover:bg-white/20"
+          aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- mobile dropdown -->
+      <div id="mobileMenu" class="hidden pb-4 md:hidden">
+        <div class="grid gap-3 text-xs font-bold uppercase tracking-wide text-white/90">
+          <a class="hover:text-white" href="#home">Home</a>
+          <a class="hover:text-white" href="#pages">Pages</a>
+          <a class="hover:text-white" href="#research">Research</a>
+          <a class="hover:text-white" href="#services">Services</a>
+          <a class="hover:text-white" href="#blog">Blog</a>
+          <a class="hover:text-white" href="#contacts">Contacts</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- angled white cut -->
+    <div class="absolute right-0 top-0 hidden h-full w-[44%] bg-white/10 header-angle md:block"></div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="relative">
+    <div class="mx-auto max-w-6xl px-4 py-8">
+      <div class="relative overflow-hidden rounded-2xl bg-white shadow-xl">
+        <!-- hero image -->
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=80"
+            alt="Lab scientist"
+            class="h-[340px] w-full object-cover md:h-[360px]"
+          />
+          <!-- soft overlay -->
+          <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/60 to-white/0"></div>
+
+          <!-- text -->
+          <div class="absolute left-6 top-1/2 w-[86%] -translate-y-1/2 md:left-12 md:w-[52%]">
+            <h1 class="text-3xl font-extrabold uppercase leading-tight tracking-tight text-[#0f2c5c] md:text-4xl">
+              Advances of science <br />
+              make easier life
+            </h1>
+            <p class="mt-3 max-w-md text-sm leading-6 text-slate-600">
+              LabtechCO aims to connect professionals with companies and organizations in the sector.
+            </p>
+            <a href="#services"
+              class="mt-6 inline-flex rounded-md border-2 border-[#2f66c4] bg-white px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-[#2f66c4] hover:bg-[#2f66c4] hover:text-white">
+              Read More
+            </a>
+          </div>
+
+          <!-- slider dots (decor) -->
+          <div class="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+            <span class="h-2 w-2 rounded-full bg-[#2f66c4]"></span>
+            <span class="h-2 w-2 rounded-full bg-slate-300"></span>
+            <span class="h-2 w-2 rounded-full bg-slate-300"></span>
+          </div>
+
+          <!-- floating right action buttons -->
+          <div class="absolute right-3 top-1/2 hidden -translate-y-1/2 flex-col gap-2 md:flex">
+            <button class="grid h-10 w-10 place-items-center rounded-lg bg-[#66c23a] text-white shadow hover:opacity-90" aria-label="Mail">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M4 6h16v12H4V6Zm8 7 8-5V7l-8 5-8-5v1l8 5Z" fill="white"/>
+              </svg>
+            </button>
+            <button class="grid h-10 w-10 place-items-center rounded-lg bg-slate-900 text-white shadow hover:opacity-90" aria-label="Cart">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M7 7h14l-1.5 8H8L7 7Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M7 7 6 3H3" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section id="services" class="bg-[#f3f6fb]">
+    <div class="mx-auto max-w-6xl px-4 py-14">
+      <div class="text-center">
+        <div class="text-xs font-bold uppercase tracking-widest text-slate-500">Reliable &amp; High-Quality</div>
+        <h2 class="mt-2 text-3xl font-extrabold uppercase tracking-tight text-[#0f2c5c]">
+          Laboratory Services
+        </h2>
+      </div>
+
+      <div class="mt-10 grid gap-4 md:grid-cols-4">
+        <!-- card -->
+        <div class="rounded-2xl bg-white p-6 shadow-sm transition hover:shadow-md">
+          <div class="grid h-12 w-12 place-items-center rounded-xl bg-[#2f66c4]/10 text-[#2f66c4]">
+            🧪
+          </div>
+          <div class="mt-4 text-sm font-extrabold uppercase text-[#0f2c5c]">Lab Technicians</div>
+          <p class="mt-2 text-sm text-slate-600">
+            Lorem ipsum is simply dummy text of the printing and typesetting.
+          </p>
+          <a href="#" class="mt-4 inline-flex items-center gap-2 text-xs font-extrabold uppercase text-[#2f66c4]">
+            Read More <span>→</span>
+          </a>
+        </div>
+
+        <div class="rounded-2xl bg-white p-6 shadow-sm transition hover:shadow-md">
+          <div class="grid h-12 w-12 place-items-center rounded-xl bg-[#2f66c4]/10 text-[#2f66c4]">
+            🧬
+          </div>
+          <div class="mt-4 text-sm font-extrabold uppercase text-[#0f2c5c]">Research Center</div>
+          <p class="mt-2 text-sm text-slate-600">
+            Lorem ipsum is simply dummy text of the printing and typesetting.
+          </p>
+          <a href="#" class="mt-4 inline-flex items-center gap-2 text-xs font-extrabold uppercase text-[#2f66c4]">
+            Read More <span>→</span>
+          </a>
+        </div>
+
+        <div class="rounded-2xl bg-white p-6 shadow-sm transition hover:shadow-md">
+          <div class="grid h-12 w-12 place-items-center rounded-xl bg-[#2f66c4]/10 text-[#2f66c4]">
+            📋
+          </div>
+          <div class="mt-4 text-sm font-extrabold uppercase text-[#0f2c5c]">Our Experience</div>
+          <p class="mt-2 text-sm text-slate-600">
+            Lorem ipsum is simply dummy text of the printing and typesetting.
+          </p>
+          <a href="#" class="mt-4 inline-flex items-center gap-2 text-xs font-extrabold uppercase text-[#2f66c4]">
+            Read More <span>→</span>
+          </a>
+        </div>
+
+        <div class="rounded-2xl bg-white p-6 shadow-sm transition hover:shadow-md">
+          <div class="grid h-12 w-12 place-items-center rounded-xl bg-[#2f66c4]/10 text-[#2f66c4]">
+            💡
+          </div>
+          <div class="mt-4 text-sm font-extrabold uppercase text-[#0f2c5c]">Helpful Test Tips</div>
+          <p class="mt-2 text-sm text-slate-600">
+            Lorem ipsum is simply dummy text of the printing and typesetting.
+          </p>
+          <a href="#" class="mt-4 inline-flex items-center gap-2 text-xs font-extrabold uppercase text-[#2f66c4]">
+            Read More <span>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTERS -->
+  <section class="bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-14">
+      <div class="text-center">
+        <div class="text-xs font-bold uppercase tracking-widest text-slate-500">
+          Laboratory Priority Services Delivered
+        </div>
+        <h3 class="mt-2 text-2xl font-extrabold uppercase text-[#0f2c5c]">
+          We Have Great Skills
+        </h3>
+      </div>
+
+      <div class="mt-10 grid gap-6 text-center md:grid-cols-4">
+        <div class="rounded-2xl bg-white p-6 shadow-sm">
+          <div class="text-4xl font-extrabold text-[#2f66c4]"><span class="counter" data-target="1000">0</span></div>
+          <div class="mt-2 text-xs font-bold uppercase tracking-widest text-slate-500">Clients</div>
+        </div>
+
+        <div class="rounded-2xl bg-white p-6 shadow-sm">
+          <div class="text-4xl font-extrabold text-[#2f66c4]"><span class="counter" data-target="302">0</span></div>
+          <div class="mt-2 text-xs font-bold uppercase tracking-widest text-slate-500">Members</div>
+        </div>
+
+        <div class="rounded-2xl bg-white p-6 shadow-sm">
+          <div class="text-4xl font-extrabold text-[#2f66c4]"><span class="counter" data-target="50">0</span></div>
+          <div class="mt-2 text-xs font-bold uppercase tracking-widest text-slate-500">Years of Experience</div>
+        </div>
+
+        <div class="rounded-2xl bg-white p-6 shadow-sm">
+          <div class="text-4xl font-extrabold text-[#2f66c4]"><span class="counter" data-target="640">0</span></div>
+          <div class="mt-2 text-xs font-bold uppercase tracking-widest text-slate-500">Suppliers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED EXPERTS SECTION -->
+  <section id="contacts" class="bg-[#f3f6fb]">
+    <div class="mx-auto max-w-6xl px-4 py-14">
+      <div class="grid items-stretch gap-0 overflow-hidden rounded-2xl bg-white shadow-xl md:grid-cols-2">
+        <!-- Left blue panel -->
+        <div class="bg-[#2f66c4] p-8 text-white md:p-10">
+          <div class="text-xs font-bold uppercase tracking-widest text-white/80">
+            We are the trusted experts
+          </div>
+          <h3 class="mt-2 text-2xl font-extrabold uppercase leading-tight">
+            We keep things simple
+          </h3>
+
+          <p class="mt-4 text-sm leading-6 text-white/85">
+            Exercitation ullamcoer suscipit lobortis nisl aliquip ex ea commodo non habent
+            claritatem insitamconse quat duis autem.
+          </p>
+
+          <div class="mt-7 grid gap-6 sm:grid-cols-2">
+            <div>
+              <div class="flex items-center gap-2 text-sm font-extrabold uppercase">
+                <span class="grid h-8 w-8 place-items-center rounded-xl bg-white/15">📊</span>
+                Extramural Funding
+              </div>
+              <ul class="mt-3 space-y-2 text-sm text-white/85">
+                <li class="flex items-center gap-2"><span class="text-white/70">›</span> Bone Slices</li>
+                <li class="flex items-center gap-2"><span class="text-white/70">›</span> Corticosterone EIA</li>
+                <li class="flex items-center gap-2"><span class="text-white/70">›</span> Dentin Discs</li>
+                <li class="flex items-center gap-2"><span class="text-white/70">›</span> Ostase BAP EIA</li>
+                <li class="flex items-center gap-2"><span class="text-white/70">›</span> Compb ELISA</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="flex items-center gap-2 text-sm font-extrabold uppercase">
+                <span class="grid h-8 w-8 place-items-center rounded-xl bg-white/15">🧫</span>
+                Bacteria Markers
+              </div>
+              <ul class="mt-3 space-y-2 text-sm text-white/85">
+                <li class="flex items-center gap-2"><span class="text-white/70">›</span> Bone Slices</li>
+                <li class="flex items-center gap-2"><span class="text-white/70">›</span> Corticosterone EIA</li>
+                <li class="flex items-center gap-2"><span class="text-white/70">›</span> Dentin Discs</li>
+                <li class="flex items-center gap-2"><span class="text-white/70">›</span> Ostase BAP EIA</li>
+                <li class="flex items-center gap-2"><span class="text-white/70">›</span> Compb ELISA</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right image -->
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1581595219315-a187dd40c322?auto=format&fit=crop&w=1200&q=80"
+            alt="Lab team"
+            class="h-full w-full object-cover"
+          />
+          <div class="absolute bottom-0 left-0 h-20 w-20 bg-[#2f66c4] diag-accent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-white py-6 text-center text-xs text-slate-500">
+    © <span id="year"></span> LabtechCO. All rights reserved.
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
